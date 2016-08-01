@@ -57,6 +57,10 @@ export default Ember.Component.extend({
       }
     },
 
+    rowClicked(row) {
+      this.sendAction('rowClicked', row);
+    },
+
     onColumnClick(column) {
       if (column.sorted) {
         this.setProperties({

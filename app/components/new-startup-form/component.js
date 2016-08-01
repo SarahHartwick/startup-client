@@ -16,6 +16,8 @@ export default Ember.Component.extend({
 
       data.owner = this.get('credentials.givenname') + ' ' + this.get('credentials.lastname');
 
+      // data.user = this.get('credentials');
+
       this.sendAction('submit', data);
 
       this.set('startup.name', null);
