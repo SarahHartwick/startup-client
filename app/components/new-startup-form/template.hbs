@@ -1,0 +1,26 @@
+<form {{action "submit" on="submit"}}>
+  <div class="create">
+<h4 style="color:#3175B0">CREATE A STARTUP</h4>
+<label for="name" style="font-weight:300; margin-top:10px; color:#f55567;">StartUp Name</label>
+{{input type="text"
+        id="name"
+        placeholder="Your Brand Name"
+        value=startup.name}}
+
+<label for="description" style="font-weight:300; margin-top:10px; color:#f55567;">StartUp Description</label>
+{{input type="text"
+        id="description"
+        placeholder="Your Elevator Pitch"
+        value=startup.description}}
+
+<br />
+
+<button type="submit" class="btn btn-primary">
+  Submit
+</button>
+
+<button class="btn btn-default" {{action "reset"}}>
+  Cancel
+</button>
+</div>
+</form>

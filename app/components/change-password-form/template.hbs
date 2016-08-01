@@ -1,0 +1,28 @@
+<div class="auth">
+  <h4 style="color:#3175B0">CHANGE PASSWORD</h4>
+  <div class="form-group">
+  <label for="previous" style="font-weight:300;">Old Password</label>
+  {{input type="password"
+          class="form-control"
+          id="previous"
+          placeholder="Old password"
+          value=passwords.previous}}
+</div>
+
+<div class="form-group">
+  <label for="next" style="font-weight:300;">New Password</label>
+  {{input type="password"
+          class="form-control"
+          id="next"
+          placeholder="New password"
+          value=passwords.next}}
+</div>
+
+<button type="submit" class="btn btn-primary" {{action "submit"}}>
+  Change Password
+</button>
+
+<button class="btn btn-default" {{action "reset"}}>
+  Cancel
+</button>
+</div>

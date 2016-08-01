@@ -1,0 +1,34 @@
+<label for="first-name" style="font-weight:300; margin-top:10px;">First Name</label>
+{{input type="text"
+        id="firstname"
+        required="true"
+        placeholder="First Name"
+        value=credentials.givenname}}
+
+<label for="last-name" style="font-weight:300; margin-top:10px;">Last Name</label>
+{{input type="text"
+        id="lastName"
+        required="true"
+        placeholder="Last Name"
+        value=credentials.lastname}}
+
+<label for="location" style="font-weight:300; margin-top:10px;">Location</label>
+{{input type="text"
+        id="location"
+        required="true"
+        placeholder="Location"
+        value=credentials.location}}
+
+{{email-input email=credentials.email}}
+{{password-input password=credentials.password}}
+{{password-confirmation-input password=credentials.passwordConfirmation}}
+
+<br />
+
+<button type="submit" class="btn btn-primary" {{action "submit"}}>
+  Sign Up
+</button>
+
+<button class="btn btn-default" {{action "reset"}}>
+  Cancel
+</button>

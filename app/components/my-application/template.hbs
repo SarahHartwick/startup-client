@@ -1,0 +1,44 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    {{navbar-header}}
+
+    <div class="collapse navbar-collapse" id="navigation">
+      <ul class="nav navbar-nav">
+        {{#if isAuthenticated}}
+        <li>{{#link-to "users"}}ENTREPRENEURS{{/link-to}}</li>
+        <li class="navlink">{{#link-to "startups"}}STARTUPS{{/link-to}}</li>
+        <li class="navlink">{{#link-to "new-startup"}}NEW STARTUP{{/link-to}}</li>
+        {{/if}}
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {{#if isAuthenticated}}
+        <li class="navlink">{{#link-to "sign-in"}}My Startups{{/link-to}}</li>
+        <li class="navlink">{{#link-to "change-password"}}Change Password{{/link-to}}</li>
+        <li class="navlink"><a href="#" {{action "signOut"}}>Sign Out</a></li>
+        {{else}}
+        <li class="navlink">{{#link-to "sign-up"}}Sign Up{{/link-to}}</li>
+        <li class="navlink">{{#link-to "sign-in"}}Sign In{{/link-to}}</li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- <h1>Start</h1> -->
+
+<div style="width:30%; margin:0 auto;">
+  {{#each flashMessages.queue as |flash|}}
+  {{flash-message flash=flash}}
+{{/each}}
+</div>
+
+<div class="col-md-10 col-md-offset-1" style="margin-top:40px;">
+  {{outlet}}
+</div>
+
+<div style="height:45px; clear:both;"></div>
+
+<div class="navbar navbar-default navbar-bottom" style="height:50px; clear:both;
+text-align:center; padding:15px;">
+  <p style="color:#3175B0">Created by Sarah Hartwick 2016</p>
+</div>

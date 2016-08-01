@@ -1,0 +1,34 @@
+<div class="panel group">
+
+<div class="panel-body table-container">
+  <div class="panel panel-heading" style="margin-bottom:-20px; margin-top:35px;">
+  <h4>Startups</h4>
+</div>
+  <div class="panel panel-default ember-light-table">
+    {{#light-table table height='65vh' as |t|}}
+      {{t.head
+        onColumnClick=(action 'onColumnClick')
+        iconAscending='fa fa-sort-asc'
+        iconDescending='fa fa-sort-desc'
+        fixed=true
+      }}
+      {{#t.body
+        canExpand=true
+        multiRowExpansion=false
+        onScrolledToBottom=(action 'onScrolledToBottom')
+      as |body|}}
+
+        {{#body.expanded-row as |row|}}
+          {{expanded-row row=row}}
+        {{/body.expanded-row}}
+
+        {{#if isLoading}}
+         {{#body.loader}}
+           {{table-loader}}
+         {{/body.loader}}
+       {{/if}}
+      {{/t.body}}
+    {{/light-table}}
+</div>
+</div>
+</div>

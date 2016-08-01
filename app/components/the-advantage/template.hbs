@@ -1,0 +1,42 @@
+<div class="jumbotron" style="background-color:#fff;">
+  {{#link-to 'strategy' start_up}}
+  <span style="font-size:16px; color:#f55567; text-align:left; margin-right:20px;">◀ Previous</span>{{/link-to}}
+  {{#link-to 'start-up' start_up}}
+    <span style="font-size:16px; text-align:center; margin-right:20px;">{{start_up.name}} Main </span>{{/link-to}}
+    {{#link-to 'problem' start_up}}
+    <span style="font-size:16px; color:#f55567; text-align:right;">Next ▶</span>{{/link-to}}
+  <h1 style="color:#3175B0; font-size:90px; font-weight:600">Competitive Advantage</h1>
+  <br />
+
+  {{#if start_up.advantage}}
+  <h1 style="text-transform:uppercase; font-size:50px;">{{start_up.advantage}}</h1>
+  <br />
+
+  {{drop-zone url='/endpoint'}}
+
+  {{else}}
+
+  <form {{action "submit" on="submit"}}>
+  <label for="inputlg" style="font-weight:300; font-size:16px;">What Strengths Do You Have Over the Competition?</label>
+  {{input class="input-lg" type="text"
+          id="advantage"
+          value=advantage}}
+
+  <br />
+
+  {{drop-zone url='/endpoint'}}
+
+  <br />
+
+  <button type="submit" class="btn btn-primary">
+    Submit
+  </button>
+
+  </form>
+
+
+  {{/if}}
+
+  </div>
+
+{{disqus-comments identifier=start_up.id}}
