@@ -4,8 +4,8 @@
 
 ## Prerequisites
 
--   [ga-wdi-boston/ember-resources](https://git.com/ga-wdi-boston/ember-resources)
--   [ga-wdi-boston/ember-resources-one-to-many](https://git.com/ga-wdi-boston/ember-resources-one-to-many)
+-   [/ember-resources](https://git.com//ember-resources)
+-   [/ember-resources-one-to-many](https://git.com//ember-resources-one-to-many)
 
 ## Objectives
 
@@ -16,7 +16,7 @@ By the end of this, developers should be able to:
 
 ## Preparation
 
-1.  [Fork and clone](https://git.com/ga-wdi-boston/meta/wiki/ForkAndClone)
+1.  [Fork and clone](https://git.com//meta/wiki/ForkAndClone)
     this repository.
 1.  Install dependencies with `npm install` and `bower install`.
 1.  Follow the instructions to setup the [API]().

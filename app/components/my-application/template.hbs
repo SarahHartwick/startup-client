@@ -6,13 +6,13 @@
       <ul class="nav navbar-nav">
         {{#if isAuthenticated}}
         <li>{{#link-to "users"}}ENTREPRENEURS{{/link-to}}</li>
-        <li class="navlink">{{#link-to "startups"}}STARTUPS{{/link-to}}</li>
-        <li class="navlink">{{#link-to "new-startup"}}NEW STARTUP{{/link-to}}</li>
+        <li class="navlink">{{#link-to "ideas"}}STARTUPS{{/link-to}}</li>
+        <li class="navlink">{{#link-to "new-idea"}}NEW STARTUP{{/link-to}}</li>
         {{/if}}
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {{#if isAuthenticated}}
-        <li class="navlink">{{#link-to "sign-in"}}MY STARTUPS{{/link-to}}</li>
+        <li class="navlink">{{#link-to "my-ideas"}}MY STARTUPS{{/link-to}}</li>
         <li class="navlink">{{#link-to "change-password"}}CHANGE PASSWORD{{/link-to}}</li>
         <li class="navlink"><a href="#" {{action "signOut"}}>SIGN OUT</a></li>
         {{else}}

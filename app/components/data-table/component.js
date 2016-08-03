@@ -14,9 +14,9 @@ export default Ember.Component.extend({
 
   columns: computed(function() {
     return [{
-      label: 'Photo',
+      label: '',
       valuePath: 'avatar',
-      width: '60px',
+      width: '30px',
       sortable: false,
       cellComponent: 'user-avatar'
     }, {

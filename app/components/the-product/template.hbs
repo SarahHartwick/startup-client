@@ -1,42 +1,51 @@
 <div class="jumbotron" style="background-color:#fff;">
-  {{#link-to 'market' start_up}}
+  {{#link-to 'market' idea}}
   <span style="font-size:16px; color:#f55567; text-align:left; margin-right:20px;">◀ Previous</span>{{/link-to}}
-  {{#link-to 'start-up' start_up}}
-    <span style="font-size:16px; text-align:center; color:#000; margin-right:20px;">{{start_up.name}} Main </span>{{/link-to}}
-    {{#link-to 'model' start_up}}
+  {{#link-to 'idea' idea}}
+    <span style="font-size:16px; text-align:center; color:#000; margin-right:20px;">{{idea.name}} Main </span>{{/link-to}}
+    {{#link-to 'model' idea}}
     <span style="font-size:16px; color:#f55567; text-align:right;">Next ▶</span>{{/link-to}}
   <h1 style="color:#3175B0; font-size:90px; font-weight:600">The Product</h1>
   <br />
 
-  {{#if start_up.product}}
-  <h1 style="text-transform:uppercase; font-size:50px;">{{start_up.product}}</h1>
+  {{#if idea.product}}
+  <h1 style="text-transform:uppercase; font-size:50px;">{{idea.product}}</h1>
   <br />
 
-  {{drop-zone url='/endpoint'}}
 
-  {{else}}
 
-  <form {{action "submit" on="submit"}}>
-  <label for="inputlg" style="font-weight:300; font-size:16px;">What is Your Product or Service?</label>
-  {{input class="input-lg" type="text"
-          id="product"
-          value=product}}
-
-  <br />
-
-  {{drop-zone url='/endpoint'}}
-
-  <br />
-
-  <button type="submit" class="btn btn-primary">
-    Submit
+  {{#if isOwned}}
+  <button type="submit" class="btn btn-primary" {{action "edit"}}>
+    Edit Slide
   </button>
-
-  </form>
-
-
+    <br />
   {{/if}}
 
-  </div>
+<br />
 
-{{disqus-comments identifier=start_up.id}}
+{{else}}
+
+
+  {{#if isOwned}}
+
+  <br />
+
+    <form {{action "submit" on="submit"}}>
+    <label for="inputlg" style="font-weight:300; font-size:16px;">What is Your Product or Service?</label>
+    {{input class="input-lg" type="text"
+            id="product"
+            value=product}}
+
+    </form>
+
+
+    {{/if}}
+
+    {{#unless isOwned}}
+    <h5 style="color:red">You are not authorized to edit this slide.</h5>
+    {{/unless}}
+
+{{/if}}
+</div>
+
+{{disqus-comments identifier=idea.id}}

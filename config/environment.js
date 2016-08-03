@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'ga-wdi-boston.startup-client',
+    modulePrefix: 'startup-client',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
@@ -20,7 +20,11 @@ module.exports = function(environment) {
 
     disqus: {
       shortname: 'startup-1'
-    }
+    },
+
+    paperclip: {
+      path: ':class/:attachment/:id_partition/:style/:filename.jpg'
+    },
   };
 
   if (environment === 'development') {
