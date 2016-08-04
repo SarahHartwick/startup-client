@@ -22,6 +22,7 @@ Router.map(function () {
   this.route('advantage', { path:'/advantages/:idea_id' });
   this.route('my-ideas');
   this.route('user-ideas', { path:'/user-ideas/:user_id' });
+  this.route('competitors', { path:'ideas/:idea_id/competitors' });
 });
 
 export default Router;

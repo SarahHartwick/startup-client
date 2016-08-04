@@ -13,4 +13,5 @@ export default DS.Model.extend({
   strategy: DS.attr('string'),
   user_id: DS.belongsTo('user'),
   person: DS.attr('number'),
+  competitors: DS.hasMany('competitor'),
 });
