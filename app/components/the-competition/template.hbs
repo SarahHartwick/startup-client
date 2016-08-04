@@ -1,3 +1,84 @@
-{{#each idea.competitors as |competitor|}}
-  {{competitor.name}}
-{{/each}}
+<div class="jumbotron col-xs-12" style="background-color:#fff;">
+  {{#link-to 'model' idea}}
+  <span style="font-size:16px; color:#f55567; text-align:left; margin-right:20px;">◀ Previous</span>{{/link-to}}
+  {{#link-to 'idea' idea}}
+    <span style="font-size:16px; text-align:center; color:#000; margin-right:20px;">{{idea.name}} Main </span>{{/link-to}}
+    {{#link-to 'strategy' idea}}
+    <span style="font-size:16px; color:#f55567; text-align:right;">Next ▶</span>{{/link-to}}
+    <h1 style="color:#3175B0; font-size:90px; font-weight:600">Top Competitors</h1>
+
+    {{#if idea.competitors}}
+      {{#each idea.competitors as |competitor|}}
+      {{competitor-box competitor=competitor delete="delete"}}
+    {{/each}}
+
+    {{#if isOwned}}
+    <div class="col-xs-12">
+    <button type="submit" style="margin-top:30px;" class="btn btn-primary" {{action "repeatAdd"}}>
+      Add Competitor
+    </button>
+    </div>
+    {{/if}}
+    {{#if isEditing}}
+    <div class="col-xs-12">
+    <br />
+    <br />
+      <form {{action "submit" on="submit"}}>
+      <label>Company Name</label>
+      {{input class="input-sm" type="text"
+              id="name"
+              value=compete.name}}
+          <br />
+      <label>Company Description</label>
+      {{input class="input-sm" type="text"
+              id="description"
+              value=compete.description}}
+          <br />
+      <label>Company Website</label>
+      {{input class="input-sm" type="text"
+              id="url"
+              value=compete.url}}
+      <button type="submit" style="margin-top:20px;" class="btn btn-primary">
+        Add
+      </button>
+
+      </form>
+    </div>
+      {{/if}}
+
+    {{else}}
+
+    {{#if isOwned}}
+
+    <br />
+    <p style="font-weight:400; font-size:16px;">Who Are Your Top Competitors?</p>
+      <form {{action "submit" on="submit"}}>
+      <label>Company Name</label>
+      {{input class="input-sm" type="text"
+              id="name"
+              value=compete.name}}
+          <br />
+      <label>Company Description</label>
+      {{input class="input-sm" type="text"
+              id="description"
+              value=compete.description}}
+          <br />
+      <label>Company Website</label>
+      {{input class="input-sm" type="text"
+              id="url"
+              value=compete.url}}
+      <button type="submit" style="margin-top:20px;" class="btn btn-primary">
+        Add Competitor
+      </button>
+
+      </form>
+
+      {{/if}}
+
+    {{#unless isOwned}}
+    <h5 style="color:red">You are not authorized to edit this slide.</h5>
+    {{/unless}}
+
+    {{/if}}
+</div>
+{{disqus-comments identifier=idea.id}}
