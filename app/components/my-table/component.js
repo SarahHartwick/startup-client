@@ -14,27 +14,24 @@ export default Ember.Component.extend({
 
   columns: computed(function() {
     return [{
-      label: '',
-      valuePath: 'avatar',
-      width: '30px',
+      label: 'Delete',
+      valuePath: 'row',
+      width: '10%',
       sortable: false,
-      cellComponent: 'user-avatar'
+      cellComponent: 'user-delete'
     }, {
-      label: 'First Name',
-      valuePath: 'givenname',
-      width: '80px'
+      label: 'Name',
+      valuePath: 'name',
+      width: '20%',
     }, {
-      label: 'Last Name',
-      valuePath: 'lastname',
-      width: '80px'
-    }, {
-      label: 'Email Address',
-      valuePath: 'email',
-      width: '100px'
-    }, {
-      label: 'Location',
-      valuePath: 'location',
-      width: '80px'
+      label: 'Description',
+      valuePath: 'description',
+      width: '50%',
+    },
+    {
+      label: 'Entrepreneur',
+      valuePath: 'owner',
+      width: '20%',
     }];
   }),
 
@@ -45,11 +42,10 @@ export default Ember.Component.extend({
 
   fetchRecords() {
     this.set('isLoading', true);
-    this.get('store').query('user', this.getProperties(['page', 'limit', 'sort', 'dir'])).then(records => {
+    let records = this.get('idea');
       this.get('table').addRows(records);
       this.set('isLoading', false);
       this.set('canLoadMore', !isEmpty(records));
-    });
   },
 
   actions: {
@@ -62,6 +58,10 @@ export default Ember.Component.extend({
 
     rowClicked(row) {
       this.sendAction('rowClicked', row.content);
+    },
+
+    delete(row) {
+      this.sendAction('delete', row.content);
     },
 
     onColumnClick(column) {

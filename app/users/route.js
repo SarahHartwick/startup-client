@@ -4,4 +4,10 @@ export default Ember.Route.extend({
   model () {
     return this.get('store').findAll('user');
   },
+
+  actions: {
+    rowClicked(row) {
+      this.transitionTo('user-ideas', row);
+    }
+  }
 });

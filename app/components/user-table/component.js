@@ -14,27 +14,24 @@ export default Ember.Component.extend({
 
   columns: computed(function() {
     return [{
-      label: '',
+      label: 'Logo',
       valuePath: 'avatar',
-      width: '30px',
+      width: '10%',
       sortable: false,
       cellComponent: 'user-avatar'
     }, {
-      label: 'First Name',
-      valuePath: 'givenname',
-      width: '80px'
+      label: 'Name',
+      valuePath: 'name',
+      width: '20%',
     }, {
-      label: 'Last Name',
-      valuePath: 'lastname',
-      width: '80px'
-    }, {
-      label: 'Email Address',
-      valuePath: 'email',
-      width: '100px'
-    }, {
-      label: 'Location',
-      valuePath: 'location',
-      width: '80px'
+      label: 'Description',
+      valuePath: 'description',
+      width: '50%',
+    },
+    {
+      label: 'Entrepreneur',
+      valuePath: 'owner',
+      width: '20%',
     }];
   }),
 
@@ -45,7 +42,15 @@ export default Ember.Component.extend({
 
   fetchRecords() {
     this.set('isLoading', true);
-    this.get('store').query('user', this.getProperties(['page', 'limit', 'sort', 'dir'])).then(records => {
+    this.get('store').findAll('idea')
+      .then((results) => {
+          return results.toArray().filter((result) => {
+            if(result.get('person') == this.get('row.id')) {
+              return result;
+            }
+          });
+      })
+      .then((records) => {
       this.get('table').addRows(records);
       this.set('isLoading', false);
       this.set('canLoadMore', !isEmpty(records));
