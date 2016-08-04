@@ -14,11 +14,11 @@ export default Ember.Component.extend({
 
   columns: computed(function() {
     return [{
-      label: 'Logo',
+      label: '',
       valuePath: 'avatar',
-      width: '10%',
+      width: '40px',
       sortable: false,
-      cellComponent: 'user-avatar'
+      cellComponent: 'startup-avatar'
     }, {
       label: 'Name',
       valuePath: 'name',
