@@ -15,4 +15,5 @@ export default DS.Model.extend({
   person: DS.attr('number'),
   competitors: DS.hasMany('competitor'),
   uploads: DS.hasMany('uploads'),
+  members: DS.hasMany('members'),
 });

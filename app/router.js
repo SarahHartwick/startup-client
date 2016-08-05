@@ -24,6 +24,7 @@ Router.map(function () {
   this.route('user-ideas', { path:'/user-ideas/:user_id' });
   this.route('competitors', { path:'ideas/:idea_id/competitors' });
   this.route('uploads', { path:'ideas/:idea_id/uploads' });
+  this.route('members', { path:'ideas/:idea_id/members' });
 });
 
 export default Router;
