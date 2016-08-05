@@ -1,4 +1,5 @@
 # StartHub [http://www.starthubapp.com]
+back-end repo: http://www.github.com/SarahHartwick/startup-api
 
 I created an application that allows people to create virtual 'slide decks' of their startup ideas to share with others.
 
