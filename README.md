@@ -2,6 +2,8 @@
 
 I created an application that allows people to create virtual 'slide decks' of their startup ideas to share with others.
 
+I used Ember as a front-end framework, and also incorporated the Disqus Comments 3rd party api, ember-uploader package, ember-light-table package and ember-cli-custom-routing package
+
 ## Functionality
 
 -   Users can signup/signin & create ideas
