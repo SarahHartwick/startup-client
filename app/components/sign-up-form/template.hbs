@@ -1,3 +1,5 @@
+<form enctype="multipart/form-data">
+
 <label for="first-name" style="font-weight:300; margin-top:10px;">First Name</label>
 {{input type="text"
         id="firstname"
@@ -22,15 +24,13 @@
 {{email-input email=credentials.email}}
 {{password-input password=credentials.password}}
 {{password-confirmation-input password=credentials.passwordConfirmation}}
-<!-- 
-<label for="location" style="font-weight:300; margin-top:10px;">Profile Photo</label>
-{{file-upload file=credentials.avatar}} -->
-<br />
 
-<button type="submit" class="btn btn-primary" {{action "submit"}}>
+<button type="submit" class="btn btn-primary"  {{action "submit"}}>
   Sign Up
 </button>
 
 <button class="btn btn-default" {{action "reset"}}>
   Cancel
 </button>
+
+</form>

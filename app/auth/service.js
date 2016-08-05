@@ -16,7 +16,6 @@ export default Ember.Service.extend({
           givenname: credentials.givenname,
           lastname: credentials.lastname,
           location: credentials.location,
-          // avatar: credentials.avatar,
         },
       },
     });

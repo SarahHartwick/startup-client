@@ -9,6 +9,6 @@ export default Ember.Route.extend({
         },
       delete (competitor) {
         competitor.destroyRecord();
-}
+      }
   }
 });
